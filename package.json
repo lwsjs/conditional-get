@@ -1,0 +1,17 @@
+{
+  "name": "local-web-server-conditional-get",
+  "author": "Lloyd Brookes <75pound@gmail.com>",
+  "version": "0.0.0",
+  "description": "conditional-get",
+  "repository": "https://github.com/local-web-server/conditional-get.git",
+  "license": "MIT",
+  "main": "./lib/conditional-get.js",
+  "keywords": [],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js",
+    "docs": "jsdoc2md -t jsdoc2md/README.md lib/*.js > README.md; echo"
+  }
+}
