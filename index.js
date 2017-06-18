@@ -1,6 +1,9 @@
 'use strict'
 
-class ConditionalGet {
+module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
+  description () {
+    return 'Conditional GET support.'
+  }
   optionDefinitions () {
     return {
       name: 'no-cache',
@@ -10,7 +13,7 @@ class ConditionalGet {
     }
   }
   middleware (options) {
-    if (!options['no-cache']) {
+    if (!options.noCache) {
       return [
         require('koa-conditional-get')(),
         require('koa-etag')()
@@ -18,5 +21,3 @@ class ConditionalGet {
     }
   }
 }
-
-module.exports = ConditionalGet

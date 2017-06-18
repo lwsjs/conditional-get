@@ -5,15 +5,11 @@
   "description": "conditional-get",
   "repository": "https://github.com/lwsjs/conditional-get.git",
   "license": "MIT",
-  "main": "./lib/conditional-get.js",
-  "keywords": [],
+  "keywords": [ "lws" ],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=7.6"
   },
-  "scripts": {
-    "test": "tape test/*.js",
-    "docs": "jsdoc2md -t jsdoc2md/README.md lib/*.js > README.md; echo"
-  },
+  "scripts": {},
   "dependencies": {
     "koa-conditional-get": "^2.0.0",
     "koa-etag": "^3.0.0"
