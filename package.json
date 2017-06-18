@@ -1,11 +1,13 @@
 {
   "name": "lws-conditional-get",
   "author": "Lloyd Brookes <75pound@gmail.com>",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "conditional-get",
   "repository": "https://github.com/lwsjs/conditional-get.git",
   "license": "MIT",
-  "keywords": [ "lws" ],
+  "keywords": [
+    "lws"
+  ],
   "engines": {
     "node": ">=7.6"
   },
