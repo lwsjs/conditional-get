@@ -1,7 +1,13 @@
-[![view on npm](http://img.shields.io/npm/v/local-web-server-conditional-get.svg)](https://www.npmjs.org/package/llocal-web-server-conditional-get)
-[![npm module downloads](http://img.shields.io/npm/dt/local-web-server-conditional-get.svg)](https://www.npmjs.org/package/local-web-server-conditional-get)
-[![Build Status](https://travis-ci.org/local-web-server/conditional-get.svg?branch=master)](https://travis-ci.org/local-web-server/conditional-get)
-[![Dependency Status](https://david-dm.org/local-web-server/conditional-get.svg)](https://david-dm.org/local-web-server/conditional-get)
+[![view on npm](https://img.shields.io/npm/v/lws-conditional-get.svg)](https://www.npmjs.org/package/llws-conditional-get)
+[![npm module downloads](https://img.shields.io/npm/dt/lws-conditional-get.svg)](https://www.npmjs.org/package/lws-conditional-get)
+[![Build Status](https://travis-ci.org/lwsjs/conditional-get.svg?branch=master)](https://travis-ci.org/lwsjs/conditional-get)
+[![Dependency Status](https://david-dm.org/lwsjs/conditional-get.svg)](https://david-dm.org/lwsjs/conditional-get)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
-# conditional-get
+# lws-conditional-get
+
+Conditional-Get support for [lws](https://github.com/lwsjs/lws). Wraps [koa-conditionalget](https://github.com/koajs/conditional-get). For usage instructions, see [here](https://github.com/lwsjs/local-web-server/wiki/How-to-use-HTTP-Conditional-Requests).
+
+* * *
+
+&copy; 2017 Lloyd Brookes <75pound@gmail.com>.

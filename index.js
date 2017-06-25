@@ -1,19 +1,16 @@
-'use strict'
-
 module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
   description () {
     return 'Conditional GET support.'
   }
   optionDefinitions () {
     return {
-      name: 'no-cache',
-      alias: 'n',
+      name: 'no-conditional-get',
       type: Boolean,
-      description: 'Disable etag-based caching - forces loading from disk each request.'
+      description: 'Disable Conditional-GET caching. Force-loads resources from disk each request.'
     }
   }
   middleware (options) {
-    if (!options.noCache) {
+    if (!options.noConditionalGet) {
       return [
         require('koa-conditional-get')(),
         require('koa-etag')()
