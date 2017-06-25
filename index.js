@@ -10,7 +10,10 @@ module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
     }
   }
   middleware (options) {
-    if (!options.noConditionalGet) {
+    const mwOptions = {}
+    if (options.noConditionalGet) mwOptions.noConditionalGet = true
+    this.emit('verbose','middleware.conditional-get.config', mwOptions)
+    if (!mwOptions.noConditionalGet) {
       return [
         require('koa-conditional-get')(),
         require('koa-etag')()
