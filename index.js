@@ -1,6 +1,6 @@
 module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
   description () {
-    return 'Conditional GET support.'
+    return 'Support for HTTP Conditional requests.'
   }
   optionDefinitions () {
     return {
