@@ -5,6 +5,7 @@ module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
   optionDefinitions () {
     return {
       name: 'no-conditional-get',
+      alias: 'n',
       type: Boolean,
       description: 'Disable Conditional-GET caching. Force-loads resources from disk each request.'
     }

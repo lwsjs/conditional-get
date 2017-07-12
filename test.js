@@ -5,6 +5,8 @@ const request = require('req-then')
 const runner = new TestRunner()
 const a = require('assert')
 const url = require('url')
+const usage = require('lws/lib/usage')
+usage.disable()
 
 runner.test('simple', async function () {
   const port = 8000 + this.index
@@ -17,7 +19,7 @@ runner.test('simple', async function () {
       }
     }
   }
-  const server = lws.create({
+  const server = lws.listen({
     port,
     stack: [ ConditionalGet, One ]
   })
@@ -44,7 +46,7 @@ runner.test('disabled', async function () {
       }
     }
   }
-  const server = lws.create({
+  const server = lws.listen({
     port,
     stack: [ ConditionalGet, One ],
     noConditionalGet: true
