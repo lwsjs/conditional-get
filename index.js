@@ -1,7 +1,10 @@
-module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
+const EventEmitter = require('events')
+
+class ConditionalGet extends EventEmitter {
   description () {
     return 'Support for HTTP Conditional requests.'
   }
+
   optionDefinitions () {
     return {
       name: 'no-conditional-get',
@@ -10,9 +13,10 @@ module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
       description: 'Disable Conditional-GET caching. Force-loads resources from disk each request.'
     }
   }
-  middleware (options) {
+
+  middleware (config) {
     const mwOptions = {}
-    if (options.noConditionalGet) mwOptions.noConditionalGet = true
+    if (config.noConditionalGet) mwOptions.noConditionalGet = true
     this.emit('verbose','middleware.conditional-get.config', mwOptions)
     if (!mwOptions.noConditionalGet) {
       return [
@@ -22,3 +26,5 @@ module.exports = MiddlewareBase => class ConditionalGet extends MiddlewareBase {
     }
   }
 }
+
+module.exports = ConditionalGet

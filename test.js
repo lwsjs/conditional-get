@@ -1,58 +1,53 @@
-const TestRunner = require('test-runner')
+const Tom = require('test-runner').Tom
 const ConditionalGet = require('./')
 const Lws = require('lws')
-const request = require('req-then')
-const runner = new TestRunner()
 const a = require('assert')
 const url = require('url')
-const usage = require('lws/lib/usage')
-usage.disable()
+const fetch = require('node-fetch')
 
-runner.test('simple', async function () {
+const tom = module.exports = new Tom('conditional-get')
+
+tom.test('simple', async function () {
   const port = 8000 + this.index
-  const lws = new Lws()
-  const One = Base => class extends Base {
+  class One {
     middleware () {
-      return async function (ctx, next) {
-        await next()
+      return function (ctx) {
         ctx.body = 'one'
       }
     }
   }
-  const server = lws.listen({
+  const lws = Lws.create({
     port,
     stack: [ ConditionalGet, One ]
   })
-  const response = await request(`http://localhost:${port}/`)
-  const etag = response.res.headers.etag
-  const reqOptions2 = url.parse(`http://localhost:${port}/`)
-  reqOptions2.headers = {
-    'If-None-Match': etag
-  }
-  const response2 = await request(reqOptions2)
-  server.close()
-  a.strictEqual(response.res.statusCode, 200)
-  a.strictEqual(response2.res.statusCode, 304)
+  const response = await fetch(`http://localhost:${port}/`)
+  const etag = response.headers.get('etag')
+  const response2 = await fetch(`http://localhost:${port}/`, {
+    headers: {
+      'If-None-Match': etag
+    }
+  })
+  lws.server.close()
+  a.strictEqual(response.status, 200)
+  a.strictEqual(response2.status, 304)
 })
 
-runner.test('disabled', async function () {
+tom.test('disabled', async function () {
   const port = 8000 + this.index
-  const lws = new Lws()
-  const One = Base => class extends Base {
+  class One {
     middleware () {
-      return async function (ctx, next) {
-        await next()
+      return function (ctx) {
         ctx.body = 'one'
       }
     }
   }
-  const server = lws.listen({
+  const lws = Lws.create({
     port,
     stack: [ ConditionalGet, One ],
     noConditionalGet: true
   })
-  const response = await request(`http://localhost:${port}/`)
-  server.close()
-  a.strictEqual(response.res.statusCode, 200)
-  a.strictEqual(response.res.headers.etag, undefined)
+  const response = await fetch(`http://localhost:${port}/`)
+  lws.server.close()
+  a.strictEqual(response.status, 200)
+  a.strictEqual(response.headers.get('etag'), null)
 })
