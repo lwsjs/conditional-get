@@ -8,6 +8,13 @@
 
 Conditional-Get support for [lws](https://github.com/lwsjs/lws). Wraps [koa-conditionalget](https://github.com/koajs/conditional-get). For usage instructions, see [here](https://github.com/lwsjs/local-web-server/wiki/How-to-use-HTTP-Conditional-Requests).
 
+Adds the following options to lws.
+
+```
+--no-conditional-get, -n       Disable Conditional-GET caching. Force-loads resources from disk each
+                               request.
+```
+
 * * *
 
 &copy; 2017-19 Lloyd Brookes <75pound@gmail.com>.
