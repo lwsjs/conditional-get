@@ -1,11 +1,11 @@
 const Tom = require('test-runner').Tom
 const ConditionalGet = require('./')
 const Lws = require('lws')
-const a = require('assert')
+const a = require('assert').strict
 const url = require('url')
 const fetch = require('node-fetch')
 
-const tom = module.exports = new Tom('conditional-get')
+const tom = module.exports = new Tom()
 
 tom.test('simple', async function () {
   const port = 8000 + this.index
@@ -28,8 +28,8 @@ tom.test('simple', async function () {
     }
   })
   lws.server.close()
-  a.strictEqual(response.status, 200)
-  a.strictEqual(response2.status, 304)
+  a.equal(response.status, 200)
+  a.equal(response2.status, 304)
 })
 
 tom.test('disabled', async function () {
@@ -48,6 +48,6 @@ tom.test('disabled', async function () {
   })
   const response = await fetch(`http://localhost:${port}/`)
   lws.server.close()
-  a.strictEqual(response.status, 200)
-  a.strictEqual(response.headers.get('etag'), null)
+  a.equal(response.status, 200)
+  a.equal(response.headers.get('etag'), null)
 })
