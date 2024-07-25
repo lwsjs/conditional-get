@@ -1,4 +1,6 @@
-const EventEmitter = require('events')
+import EventEmitter from 'events'
+import koaConditionalGet from 'koa-conditional-get'
+import koaETag from 'koa-etag'
 
 class ConditionalGet extends EventEmitter {
   description () {
@@ -20,11 +22,11 @@ class ConditionalGet extends EventEmitter {
     this.emit('verbose','middleware.conditional-get.config', mwOptions)
     if (!mwOptions.noConditionalGet) {
       return [
-        require('koa-conditional-get')(),
-        require('koa-etag')()
+        koaConditionalGet(),
+        koaETag()
       ]
     }
   }
 }
 
-module.exports = ConditionalGet
+export default ConditionalGet

@@ -1,7 +1,8 @@
-[![view on npm](https://img.shields.io/npm/v/lws-conditional-get.svg)](https://www.npmjs.org/package/lws-conditional-get)
-[![npm module downloads](https://img.shields.io/npm/dt/lws-conditional-get.svg)](https://www.npmjs.org/package/lws-conditional-get)
-[![Build Status](https://travis-ci.org/lwsjs/conditional-get.svg?branch=master)](https://travis-ci.org/lwsjs/conditional-get)
-[![Dependency Status](https://badgen.net/david/dep/lwsjs/conditional-get)](https://david-dm.org/lwsjs/conditional-get)
+[![view on npm](https://badgen.net/npm/v/lws-conditional-get)](https://www.npmjs.org/package/lws-conditional-get)
+[![npm module downloads](https://badgen.net/npm/dt/lws-conditional-get)](https://www.npmjs.org/package/lws-conditional-get)
+[![Gihub repo dependents](https://badgen.net/github/dependents-repo/lwsjs/conditional-get)](https://github.com/lwsjs/conditional-get/network/dependents?dependent_type=REPOSITORY)
+[![Gihub package dependents](https://badgen.net/github/dependents-pkg/lwsjs/conditional-get)](https://github.com/lwsjs/conditional-get/network/dependents?dependent_type=PACKAGE)
+[![Node.js CI](https://github.com/lwsjs/conditional-get/actions/workflows/node.js.yml/badge.svg)](https://github.com/lwsjs/conditional-get/actions/workflows/node.js.yml)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
 # lws-conditional-get
@@ -17,4 +18,4 @@ Adds the following options to lws.
 
 * * *
 
-&copy; 2017-20 Lloyd Brookes <75pound@gmail.com>.
+&copy; 2017-24 Lloyd Brookes <75pound@gmail.com>.

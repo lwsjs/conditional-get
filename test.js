@@ -1,11 +1,11 @@
-const Tom = require('test-runner').Tom
-const ConditionalGet = require('./')
-const Lws = require('lws')
-const a = require('assert').strict
-const url = require('url')
-const fetch = require('node-fetch')
+import TestRunner from 'test-runner'
+import ConditionalGet from 'lws-conditional-get'
+import Lws from 'lws'
+import url from 'url'
+import fetch from 'node-fetch'
+import { strict as a } from 'assert'
 
-const tom = module.exports = new Tom()
+const tom = new TestRunner.Tom()
 
 tom.test('simple', async function () {
   const port = 8000 + this.index
@@ -16,7 +16,7 @@ tom.test('simple', async function () {
       }
     }
   }
-  const lws = Lws.create({
+  const lws = await Lws.create({
     port,
     stack: [ ConditionalGet, One ]
   })
@@ -41,7 +41,7 @@ tom.test('disabled', async function () {
       }
     }
   }
-  const lws = Lws.create({
+  const lws = await Lws.create({
     port,
     stack: [ ConditionalGet, One ],
     noConditionalGet: true
@@ -51,3 +51,5 @@ tom.test('disabled', async function () {
   a.equal(response.status, 200)
   a.equal(response.headers.get('etag'), null)
 })
+
+export default tom
